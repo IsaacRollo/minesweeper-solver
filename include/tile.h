@@ -1,7 +1,7 @@
 #ifndef TILE_H
 #define TILE_H
 
-namespace tile {
+namespace isaacr {
 
 class Tile {
 public:
@@ -14,8 +14,11 @@ public:
     void switchFlag();
     void switchBomb();
     void setBombAdj(int bombAdj);
+    void incrementBombAdj();
     bool isBomb();
     bool isFlagged();
+    bool isClicked();
+    int getBombAdj();
     bool click();
     char drawTile();
 

@@ -1,33 +1,45 @@
 #include <tile.h>
 
-void tile::Tile::switchFlag(){
+void isaacr::Tile::switchFlag(){
     _flagged = !(_flagged);
 }
 
-void tile::Tile::switchBomb(){
+void isaacr::Tile::switchBomb(){
     _bomb = !(_bomb);
 }
 
-void tile::Tile::setBombAdj(int bombAdj){
+void isaacr::Tile::setBombAdj(int bombAdj){
     _bombAdj = bombAdj;
 }
 
-bool tile::Tile::isBomb(){
+void isaacr::Tile::incrementBombAdj(){
+    _bombAdj++;
+}
+
+bool isaacr::Tile::isBomb(){
     return _bomb;
 }
 
-bool tile::Tile::isFlagged(){
+bool isaacr::Tile::isFlagged(){
     return _flagged;
 }
 
-bool tile::Tile::click(){
+bool isaacr::Tile::isClicked(){
+    return _clicked;
+}
+
+int isaacr::Tile::getBombAdj(){
+    return _bombAdj;
+}
+
+bool isaacr::Tile::click(){
     _clicked = true;
     return _bomb;
 }
 
-char tile::Tile::drawTile(){
+char isaacr::Tile::drawTile(){
     if(_flagged) return 'f';
     if(!_clicked) return ' ';
     if(_bomb) return 'b';
-    return _bombAdj;
+    return _bombAdj + '0';
 }
